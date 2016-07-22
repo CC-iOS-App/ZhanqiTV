@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>image</key>
+			<string>Mine_dailyTask</string>
+			<key>title</key>
+			<string>每日任务</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>我的订阅</string>
+			<key>image</key>
+			<string>Mine_mySubscription</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>开播提醒</string>
+			<key>image</key>
+			<string>Mine_startedRemind</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>观看历史</string>
+			<key>image</key>
+			<string>Mine_watchHistory</string>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>私信</string>
+			<key>image</key>
+			<string>Mine_directMessages</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>官方公告</string>
+			<key>image</key>
+			<string>Mine_officialAnnouncement</string>
+		</dict>
+	</array>
+</array>
+</plist>

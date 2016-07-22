@@ -1,0 +1,17 @@
+//
+//  AppDelegate.h
+//  ZhanqiTV
+//
+//  Created by lechinepay on 16/6/15.
+//  Copyright © 2016年 Yu.Z.Y. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UITabBarController *rootTabbarController;
+@property(nonatomic, strong) UIImageView *advImage;
+@end
+

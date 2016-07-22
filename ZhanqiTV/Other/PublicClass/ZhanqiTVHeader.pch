@@ -1,0 +1,23 @@
+//
+//  ZhanqiTVHeader.pch
+//  ZhanqiTV
+//
+//  Created by lechinepay on 16/6/15.
+//  Copyright © 2016年 Yu.Z.Y. All rights reserved.
+//
+
+#ifndef ZhanqiTVHeader_pch
+#define ZhanqiTVHeader_pch
+
+#import "Tool.h" //工具类
+#import "Constants.h" //常量
+#import "NetworkSingleton.h" //封装请求类
+#import "MJRefresh.h" // 明杰刷新
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+
+#import "Header.h" //头文件
+#import "AppDelegate.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#endif /* ZhanqiTVHeader_pch */
