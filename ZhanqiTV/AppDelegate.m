@@ -28,7 +28,7 @@ float kScreenFactor =1.0;
     if (isExit) {
         NSLog(@"存在");
         _advImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, kScreen_height)];
-        //        [_advImage setImage:[UIImage imageNamed:@"loading.png"]];
+        //        [_advImage setImage:[UIImage imageNamed:@"loading.png"]];wwwww
         [_advImage setImage:[UIImage imageWithContentsOfFile:filePath]];
         [self.window addSubview:_advImage];
         [self performSelector:@selector(removeAdvImage) withObject:nil afterDelay:3];
