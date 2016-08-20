@@ -10,6 +10,9 @@
 #define Constants_h
 // 1.判断是否为iOS7或者更高版本
 #define iOS7     ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+#define iOS8     ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0)
+
 //当前版本号
 #define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 // 2.获取RGB颜色
@@ -59,4 +62,14 @@ extern float kScreen_height;
 
 // 8.两次网络请求时间间隔
 #define NetworkRequestInterval    120
+
+
+#define SuppressPerformSelectorLeakWarning(Stuff) \
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+Stuff; \
+_Pragma("clang diagnostic pop") \
+} while (0)
+
 #endif /* Constants_h */

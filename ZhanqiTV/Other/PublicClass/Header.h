@@ -9,8 +9,6 @@
 #ifndef Header_h
 #define Header_h
 
-#import "HomeNavView.h"//自定义导航view
-
 #import "BaseNavViewController.h"//导航控制器
 
 #import "TalentShowViewController.h" //达人美拍

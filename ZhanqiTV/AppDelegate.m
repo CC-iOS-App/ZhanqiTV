@@ -11,6 +11,7 @@
 float kScreen_width = 320.0;
 float kScreen_height = 568.0;
 float kScreenFactor =1.0;
+#import "MainTabController.h"
 @interface AppDelegate ()
 
 @end
@@ -85,46 +86,12 @@ float kScreenFactor =1.0;
 - (void)initRootController
 {
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    
-    HomeViewController *home = [[HomeViewController alloc]init];
-    BaseNavViewController *homeNav = [[BaseNavViewController alloc]initWithRootViewController:home];
-    
-    LiveViewController *live = [[LiveViewController alloc]init];
-    BaseNavViewController *liveNav = [[BaseNavViewController alloc]initWithRootViewController:live];
-    
-    EntertainmentViewController *entertainment = [[EntertainmentViewController alloc]init];
-    BaseNavViewController *entertainmentNav = [[BaseNavViewController alloc]initWithRootViewController:entertainment];
-    
-    MineViewController *mine = [[MineViewController alloc]init];
-    BaseNavViewController *mineNav = [[BaseNavViewController alloc]initWithRootViewController:mine];
-    
-    homeNav.title = @"首页";
-    homeNav.tabBarItem.image = [UIImage imageNamed:@"tabbar_home"];
-//    homeNav.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];// 始终绘制图片原始状态，不使用Tint Color。
-    liveNav.title = @"直播";
-    liveNav.tabBarItem.image = [UIImage imageNamed:@"tabbar_live"];
-    
-    entertainmentNav.title = @"娱乐";
-    entertainmentNav.tabBarItem.image = [UIImage imageNamed:@"tabbar_entertainment"];
-    
-    mineNav.title = @"我的";
-    mineNav.tabBarItem.image = [UIImage imageNamed:@"tabbar_mine"];
-    
-    
-    NSArray *viewControllers = @[homeNav,liveNav,entertainmentNav,mineNav];
-    [self.rootTabbarController setViewControllers:viewControllers animated:YES];
-    self.window.rootViewController = self.rootTabbarController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    MainTabController *mainTab = [[MainTabController alloc]initWithNibName:nil bundle:nil];
+    self.window.rootViewController = mainTab;
     
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];//设置状态栏为白色，在info文件中也做相应修改
     [self.window makeKeyAndVisible];
-}
-- (UITabBarController *)rootTabbarController
-{
-    if (!_rootTabbarController) {
-        _rootTabbarController = [[UITabBarController alloc]init];
-        _rootTabbarController.tabBar.tintColor = navigationBarColor;
-    }
-    return _rootTabbarController;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //启用网络接口日志
