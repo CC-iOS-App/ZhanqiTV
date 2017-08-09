@@ -19,7 +19,7 @@
 #define RGBA(r,g,b,a)       [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define RGB(r,g,b)         RGBA(r,g,b,1.0f)
 
-#define navigationBarColor  RGB(3, 158, 250)
+#define navigationBarColor  RGB(84, 181, 239)
 #define separaterColor      RGB(200, 199, 204)
 #define tableViewBackGroundColor RGB(234,239,245)
 #define MineHeaderBackGroundColor RGB(33,184,240)

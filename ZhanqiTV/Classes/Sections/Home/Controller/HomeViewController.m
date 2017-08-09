@@ -62,18 +62,6 @@
     UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightView];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //页面将要出现时，设置颜色
-
-    [self.navigationController.navigationBar setBarTintColor:navigationBarColor];
-  
-}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -82,8 +70,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNav];
-    [self buildView];//建立页面
+    self.title = NSLocalizedString(@"首页", nil);
+    //[self setNav];
+    //[self buildView];//建立页面
 }
 #pragma mark -- 初始化View
 - (void)buildView

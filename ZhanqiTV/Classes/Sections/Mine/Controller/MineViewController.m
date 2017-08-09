@@ -7,81 +7,58 @@
 //
 
 #import "MineViewController.h"
-#import "OfficialAnnouncementViewController.h"
-#import "UIView+YZY.h"
-#import "CommonTableData.h"
-#import "CommonTableDelegate.h"
+#import "MineHeadCell.h"
 @interface MineViewController ()
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *data;
-@property (nonatomic, strong) CommonTableDelegate *delegator;
 @end
 
 @implementation MineViewController
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    [UIView animateWithDuration:0.35 animations:^{
-        self.navigationController.navigationBar.frame = CGRectOffset(self.navigationController.navigationBar.frame, self.navigationController.navigationBar.width, 0);
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [self.navigationController setNavigationBarHidden:YES animated:NO];
-        }
-    }];
-}
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
-    self.navigationController.navigationBar.frame = CGRectOffset(self.navigationController.navigationBar.frame, self.navigationController.navigationBar.width, 0);
-    [UIView animateWithDuration:0.35 animations:^{
-        
-        self.navigationController.navigationBar.frame = CGRectOffset(self.navigationController.navigationBar.frame, -self.navigationController.navigationBar.width, 0);
-    } completion:^(BOOL finished) {
-        if (finished) {
 
-        }
-    }];
-    
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+
     [self initData];
-    [self initTableView];
 }
 #pragma mark -- initData
 - (void)initData
 {
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"MineData" ofType:@"plist"];
     NSArray *data = [[NSArray alloc]initWithContentsOfFile:plistPath];
-    self.data = [CommonTableSection sectionWithData:data];
 }
-#pragma mark -- 建立view
-- (void)initTableView
-{
-    [self.view addSubview:self.tableView];
-    
+
+#pragma mark - TableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 4;
 }
-#pragma mark -- 懒加载
-- (UITableView *)tableView
-{
-    if (!_tableView) {
-        
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, kScreen_width, kScreen_height-kTabbarHeight) style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = tableViewBackGroundColor;
-        __weak typeof(self) weakSelf = self;
-        self.delegator = [[CommonTableDelegate alloc]initWithTableData:^NSArray *{
-            return weakSelf.data;
-        }];
-        _tableView.dataSource = self.delegator;
-        _tableView.delegate = self.delegator;
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = nil;
+    if (indexPath.section == 0) {
+        cell = (MineHeadCell *)[tableView dequeueReusableCellWithIdentifier:@"MineHeadCell"];
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     }
-    return _tableView;
+    
+    if (!cell) {
+        if (indexPath.section == 0) {
+            
+        }else{
+            
+        }
+    }
+    
+    return cell;
 }
+
+#pragma mark - TableViewDelegate
+
 
 #pragma mark - Action
 - (void)dailyTask//每日任务
@@ -107,12 +84,6 @@
 }
 - (void)officialAnnouncement//官方公告
 {
-    OfficialAnnouncementViewController *vc = [[OfficialAnnouncementViewController alloc]initWithNibName:nil bundle:nil];
-    vc.title = @"官方公告";
-    [self.navigationController pushViewController:vc animated:YES];
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 
+}
 @end

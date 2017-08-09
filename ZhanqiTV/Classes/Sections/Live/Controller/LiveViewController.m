@@ -69,8 +69,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self setNav];
-    [self initCollectionView];
+    //[self setNav];
+    //[self initCollectionView];
 }
 #pragma mark -- 初始化View
 - (void)initCollectionView
